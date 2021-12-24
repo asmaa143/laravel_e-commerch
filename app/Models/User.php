@@ -45,4 +45,16 @@ class User extends Authenticatable
     public function gender(){
         return $this->belongsTo(Gender::class,'gender_id','id');
     }
+
+    public function sentMessages(){
+        return $this->hasMany(Chat::class,'first_user_id');
+    }
+
+    public function receivedMessages(){
+        return $this->hasMany(Chat::class,'second_user_id');
+    }
+
+    public function image(){
+        return $this->belongsTo(Image::class,'image_id');
+    }
 }

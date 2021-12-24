@@ -24,12 +24,20 @@ class CreateUsersTable extends Migration
             $table->string('address',125)->nullable();
             $table->boolean('is_admin')->default(false);
             $table->text('bio')->nullable();
+            $table->string('api_token',125)->nullable(true);
             $table->unsignedBigInteger('gender_id')->nullable();
+            $table->unsignedBigInteger('image_id')->nullable();
             $table->timestamps();
 
             $table->foreign('gender_id')
                 ->references('id')
                 ->on('genders')
+                ->onUpdate('CASCADE')
+                ->onDelete('SET NULL');
+
+            $table->foreign('image_id')
+                ->references('id')
+                ->on('images')
                 ->onUpdate('CASCADE')
                 ->onDelete('SET NULL');
         });

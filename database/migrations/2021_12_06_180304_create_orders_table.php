@@ -23,6 +23,7 @@ class CreateOrdersTable extends Migration
             $table->unsignedDecimal('discount')->default(0);
             $table->unsignedDecimal('tax')->default(0);
             $table->boolean('is_received')->default(false);
+            $table->boolean('is_checked_out')->default(false);
             $table->timestamp('shipped_at');
             $table->timestamps();
 

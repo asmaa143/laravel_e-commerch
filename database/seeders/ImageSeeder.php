@@ -2,11 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Order;
+use App\Models\Chat;
+use App\Models\Image;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class OrderSeeder extends Seeder
+class ImageSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +16,7 @@ class OrderSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('orders')->delete();
-        Order::factory()->count(100)->create();
+        DB::table('images')->delete();
+        Image::factory()->count(100)->create();
     }
 }

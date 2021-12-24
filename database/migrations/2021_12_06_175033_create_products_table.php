@@ -25,10 +25,17 @@ class CreateProductsTable extends Migration
             $table->boolean('is_upcoming')->default(true);
             $table->unsignedInteger('quantity')->default(1);
             $table->unsignedBigInteger('category_id')->nullable();
+            $table->unsignedBigInteger('image_id')->nullable(true);
             $table->timestamps();
             $table->foreign('category_id')
                 ->references('id')
                 ->on('categories')
+                ->onUpdate('CASCADE')
+                ->onDelete('SET NULL');
+
+            $table->foreign('image_id')
+                ->references('id')
+                ->on('images')
                 ->onUpdate('CASCADE')
                 ->onDelete('SET NULL');
         });

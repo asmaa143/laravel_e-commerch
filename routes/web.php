@@ -29,14 +29,19 @@ Route::group(['prefix'=>'register'],function (){
     Route::post('/',[AuthController::class,"doRegister"]);
 });
 
-
-
 Route::get('/logout',[AuthController::class,"doLogout"]);
 
 Route::group(['prefix'=>'contact-us'],function (){
     Route::get('/',[ContactController::class,"getContactView"]);
     Route::post('/',[ContactController::class,"saveFeedback"]);
 });
+
+Route::group(['prefix'=>'/'],function (){
+    Route::get('/home',[\App\Http\Controllers\HomeController::class,"index"]);
+    Route::post('/home',[\App\Http\Controllers\HomeController::class,"addToCaret"]);
+
+});
+
 
 Route::group(['prefix'=>'tests'],function (){
     Route::get('/upload-file',[TestController::class,"getUploadView"]);
