@@ -6,6 +6,7 @@
             <h5 class="card-title text-center font-weight-bold text-truncate m-0 mb-2">
                 {{$product->name}}
             </h5>
+            <div class="rateYo" data-rateyo-num-stars="5" data-rateyo-rating="4" data-rateyo-read-only="true" ></div>
             <div class="text-center">
                 <p class="text-center m-0 text-muted font-italic text-truncate">
                     {{$product->category? $product->category->name: "No Category"}}

@@ -61,6 +61,7 @@
                      aria-labelledby="navbarDropdown1">
                     <a class="dropdown-item" href="/profile">Profile</a>
                     <a class="dropdown-item" href="shopping-cart">My Cart</a>
+                    <a class="dropdown-item" href="/admin">Dashboard</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="/logout">Logout</a>
                 </div>

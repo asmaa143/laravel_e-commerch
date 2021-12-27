@@ -36,6 +36,13 @@ Route::group(['prefix'=>'contact-us'],function (){
     Route::post('/',[ContactController::class,"saveFeedback"]);
 });
 
+Route::group(['prefix'=>'shopping-cart'],function (){
+   Route::get('/',[\App\Http\Controllers\CartController::class,"index"]);
+   Route::post('/delete',[\App\Http\Controllers\CartController::class,"deleteItemFromCart"]);
+   Route::post('/delete-all',[\App\Http\Controllers\CartController::class,"deleteCart"]);
+
+});
+
 Route::group(['prefix'=>'/'],function (){
     Route::get('/home',[\App\Http\Controllers\HomeController::class,"index"]);
     Route::post('/home',[\App\Http\Controllers\HomeController::class,"addToCaret"]);
@@ -48,6 +55,18 @@ Route::group(['prefix'=>'tests'],function (){
     Route::post('/upload-file',[TestController::class,"doUpload"]);
 
 });
+
+
+
+
+Route::group(['prefix'=>'/admin','middleware'=>['isAdmin','auth']],function (){
+    Route::get('/',[\App\Http\Controllers\Dashboard\IndexDashboardController::class,"index"]);
+    Route::get('/users',[\App\Http\Controllers\Dashboard\UserDashboardController::class,"index"]);
+    Route::get('/logout',[\App\Http\Controllers\Dashboard\IndexDashboardController::class,"doLogout"]);
+
+
+});
+
 
 
 //middleware  //ok
